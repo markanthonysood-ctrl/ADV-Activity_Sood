@@ -1,0 +1,9 @@
+function isValidPassword(password) {
+    let uppercaseCount = (password.match(/[A-Z]/g) || []).length;
+    let hasDigit = /\d/.test(password);
+    let hasSymbol = /[_!?\*]/.test(password);
+    return uppercaseCount >= 3 && hasDigit && hasSymbol;
+}
+
+console.log(isValidPassword("PASsword123!")); 
+console.log(isValidPassword("pass"));         
