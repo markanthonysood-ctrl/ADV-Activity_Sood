@@ -1,0 +1,11 @@
+let people = [
+  { name: "Alice", age: 25 },
+  { name: "Bob", age: 32 },
+  { name: "Charlie", age: 29 }
+];
+
+let oldest = people.reduce((max, person) => {
+  return person.age > max.age ? person : max;
+}, people[0]); 
+
+console.log(oldest);
