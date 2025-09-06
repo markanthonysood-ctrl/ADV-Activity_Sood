@@ -1,0 +1,33 @@
+import promp from "./promp.js";
+import data from "./data.js";
+
+const wordObj = data[Math.floor(Math.random() * data.length)];
+
+async function runGame() {
+  const hangmanWord = "HANGMAN"; 
+  let wrongAttempts = 0;
+  let guessed = false;
+
+  while (wrongAttempts < hangmanWord.length && !guessed) {
+    const answer = await promp(`${wordObj.question} `);
+
+    if (answer.toLowerCase() === wordObj.word.toLowerCase()) {
+      console.log("Congratulations! You've guessed the word correctly.");
+      guessed = true;
+      return;
+    }
+
+    wrongAttempts++;
+    console.log(`Wrong guess! Progress: ${hangmanWord.slice(0, wrongAttempts)}`);
+
+    if (wrongAttempts === hangmanWord.length - 1) {
+      console.log(`Hint: ${wordObj.hint}`);
+    }
+
+    if (wrongAttempts === hangmanWord.length) {
+      console.log(`Game Over! The correct word was "${wordObj.word}".`);
+    }
+  }
+}
+
+runGame();
