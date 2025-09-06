@@ -1,0 +1,7 @@
+function areValuesUnique(numbers) {
+    let uniqueNumbers = new Set(numbers);
+    return uniqueNumbers.size === numbers.length;
+}
+
+console.log(areValuesUnique([1, 2, 3, 4]));
+console.log(areValuesUnique([1, 2, 3, 1])); 
