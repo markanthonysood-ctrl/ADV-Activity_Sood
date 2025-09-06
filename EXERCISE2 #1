@@ -1,0 +1,15 @@
+let persons = [
+    { id: 1, name: "Alice", age: 28 },
+    { id: 2, name: "Bob", age: 22 },
+    { id: 3, name: "Charlie", age: 30 },
+];
+
+function updatePerson(id, person) {
+    persons = persons.map(p =>
+        p.id === id ? { ...p, ...person } : p
+    );
+}
+
+updatePerson(2, { name: "Robert", age: 26 });
+
+console.log(persons);
